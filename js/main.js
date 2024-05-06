@@ -60,10 +60,10 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
             color: document.getElementById('color').value,
             material: document.getElementById('material').value,
             piece: document.getElementById('category').value,
-            washTemperature: document.getElementById('washTemperature').value,
             washType: document.getElementById('washType').value,
-            tumbleDry: document.getElementById('tumbleDry').checked,
-            washSeparately: document.getElementById('washSeparately').checked,
+            washTemperature: document.getElementById('washTemperature').value,
+            dryType: document.getElementById('dryType').value,
+            dryTemperature: document.getElementById('dryTemperature').value,
             uses: 0
         };
 
@@ -114,7 +114,7 @@ function displayItems() {
     items.forEach(function(item) {
         var div = document.createElement('div');
         div.id = 'gridItem';
-        div.innerHTML = '<img src="' + item.image + '"><h2>' + item.name + '</h2><p>Color: ' + item.color + '</p><p>Material: ' + item.material + '</p><p>Piece: ' + item.piece + '</p><p>Wash Temperature: ' + item.washTemperature + '</p><p>Spin Speed: ' + item.spinSpeed + '</p><p>Tumble Dry: ' + item.tumbleDry + '</p><p>Wash Separately: ' + item.washSeparately + '</p>'
+        div.innerHTML = '<img src="' + item.image + '"><h2>' + item.name + '</h2><p>' + item.color + ' ' + item.material + ' ' + item.piece + '</p><p>Wasing: ' + item.washTemperature + ' ' + item.washType + '</p><p>Drying: ' + item.dryTemperature + ' ' + item.dryType + '</p>'
         div.innerHTML += '<div id="itemButtons"><button id="decrementItemUsesBtn" onclick="decrementItemUses(' + items.indexOf(item) + ')">−</button>' + item.uses + '<button id="incrementItemUsesBtn" onclick="incrementItemUses(' + items.indexOf(item) + ')">+</button><button id="resetItemUsesBtn" onclick="resetItemUses(' + items.indexOf(item) + ')">↺</button><button id="deleteItemBtn" onclick="deleteItem(' + items.indexOf(item) + ')">×</button></div>';
         grid.appendChild(div);
     });
