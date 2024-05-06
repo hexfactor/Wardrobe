@@ -46,6 +46,10 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+document.getElementById('closeButton').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+});
+
 document.getElementById('addItemForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -55,9 +59,9 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
             name: document.getElementById('name').value,
             color: document.getElementById('color').value,
             material: document.getElementById('material').value,
-            piece: document.getElementById('piece').value,
+            piece: document.getElementById('category').value,
             washTemperature: document.getElementById('washTemperature').value,
-            spinSpeed: document.getElementById('spinSpeed').value,
+            washType: document.getElementById('washType').value,
             tumbleDry: document.getElementById('tumbleDry').checked,
             washSeparately: document.getElementById('washSeparately').checked,
             uses: 0

@@ -11,16 +11,81 @@
     <div id="grid"></div>
     <button id="addButton">Add Item</button>
     <div id="overlay" style="display: none;">
+        <button id="closeButton">Close</button>
         <form id="addItemForm">
             <input type="file" id="imageUpload" accept="image/*">
             <input type="text" id="name" placeholder="Name">
-            <input type="text" id="color" placeholder="Color">
-            <input type="text" id="material" placeholder="Material">
-            <input type="text" id="piece" placeholder="Piece">
-            <input type="number" id="washTemperature" placeholder="Wash Temperature">
-            <input type="number" id="spinSpeed" placeholder="Spin Speed">
-            <input type="checkbox" id="tumbleDry" placeholder="Tumble Dry">
-            <input type="checkbox" id="washSeparately" placeholder="Wash Separately">
+
+            <div id="itemFormSection">
+                <select id="color" placeholder="Color">
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Red">Red</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Purple">Purple</option>
+                    <option value="Pink">Pink</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Grey">Grey</option>
+                    <option value="Beige">Beige</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select id="material" placeholder="Material">
+                    <option value="Cotton">Cotton</option>
+                    <option value="Polyester">Polyester</option>
+                    <option value="Denim">Nylon</option>
+                    <option value="Wool">Wool</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select id="category" placeholder="Category">
+                    <option value="Shirt">Shirt</option>
+                    <option value="Pants">Pants</option>
+                    <option value="Shorts">Shorts</option>
+                    <option value="Jacket">Jacket</option>
+                    <option value="Sweater">Sweater</option>
+                    <option value="Underwear">Underwear</option>
+                    <option value="Socks">Socks</option>
+                    <option value="Towel">Towel</option>
+                    <option value="Bedding">Bedding</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <p>Washing</p>
+
+            <div id="itemFormSection">
+                <select id="washType" placeholder="Wash Type">
+                    <option value="Normal">Normal</option>
+                    <option value="Delicate">Delicate</option>
+                    <option value="Hand Wash">Hand Wash</option>
+                    <option value="Wash Separately">Wash Separately</option>
+                    <option value="Dry Clean">Dry Clean</option>
+                </select>
+
+                <select id="washTemperature" placeholder="Wash Temperature">
+                    <option value="Cool">Cool (30)</option>
+                    <option value="Warm">Warm (40)</option>
+                    <option value="Hot">Hot (60)</option>
+                </select>
+            </div>
+            <p>Drying</p>
+            <div id="itemFormSection">
+                <select id="dryType" placeholder="Dry Type">
+                    <option value="Tumble Dry">Tumble Dry</option>
+                    <option value="Line Dry">Line Dry</option>
+                </select>
+
+                <select id="dryTemperature" placeholder="Dry Temperature">
+                    <option value="Low">Low/Shade</option>
+                    <option value="Medium">Medium/Outdoors</option>
+                    <option value="High">High/Full sun?</option>
+                </select>
+            </div>
+
             <button type="submit">Submit</button>
         </form>
     </div>
