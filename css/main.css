@@ -9,20 +9,139 @@ body {
     justify-content: space-around;
 }
 
+#header {
+    padding: 20px;
+    text-align: center;
+}
+
+#addButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(5px);
 }
 
 #addItemForm {
     background-color: white;
     padding: 20px;
+    margin: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#addItemForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#addItemForm button {
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addItemForm button:hover {
+    background-color: #666;
+}
+
+#gridItem {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 200px;
+    box-shadow: 6px 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+#gridItem img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#gridItem h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+#gridItem p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Grid item buttons */
+
+#itemButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#deleteItemBtn {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 100px;
+    border-color: #0000;
+    cursor: pointer;
+}
+
+#deleteItemBtn:hover {
+    background-color: #ff8888;
+}
+
+#resetItemUsesBtn {
+    background-color: #333;
+    color: white;
+    border-radius: 100px;
+    border-color: #0000;
+    cursor: pointer;
+}
+
+#resetItemUsesBtn:hover {
+    background-color: #666;
+}
+
+#incrementItemUsesBtn {
+    background-color: #333;
+    color: white;
+    border-radius: 100px;
+    border-color: #0000;
+    cursor: pointer;
+}
+
+#incrementItemUsesBtn:hover {
+    background-color: #666;
+}
+
+#decrementItemUsesBtn {
+    background-color: #333;
+    color: white;
+    border-radius: 100px;
+    border-color: #0000;
+    cursor: pointer;
+}
+
+#decrementItemUsesBtn:hover {
+    background-color: #666;
 }

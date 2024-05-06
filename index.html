@@ -4,12 +4,16 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+    <div id="header">
+        <h1>Laundry</h1>
+    </div>
     <div id="sidebar"></div>
     <div id="grid"></div>
     <button id="addButton">Add Item</button>
     <div id="overlay" style="display: none;">
         <form id="addItemForm">
             <input type="file" id="imageUpload" accept="image/*">
+            <input type="text" id="name" placeholder="Name">
             <input type="text" id="color" placeholder="Color">
             <input type="text" id="material" placeholder="Material">
             <input type="text" id="piece" placeholder="Piece">
