@@ -23,13 +23,39 @@ body {
 }
 
 #sidebar {
-    width: 200px;
+    width: 250px;
     height: 100vh;
     background-color: #1F1F1F;
     position: fixed;
-    top: 0;
+    top: 60px; /* Adjusted to be below header */
     left: 0;
     border-right: 1px solid #333;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#sidebar h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.filter-section input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 #grid {

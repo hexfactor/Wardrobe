@@ -72,22 +72,70 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
         localStorage.setItem('items', JSON.stringify(items));
 
         document.getElementById('overlay').style.display = 'none';
-        displayItems();
+        applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
     });
 });
+
+
+const items = JSON.parse(localStorage.getItem('items')) || [];
+const filters = {
+    color: new Set(),
+    material: new Set(),
+    category: new Set(),
+    washTemperature: new Set()
+};
+
+function applyFiltersAndRender(unfilteredItems) {
+    let filteredItems = unfilteredItems;
+
+    if (filters.color.size > 0) {
+        filteredItems = filteredItems.filter(item => filters.color.has(item.color));
+    }
+    if (filters.material.size > 0) {
+        filteredItems = filteredItems.filter(item => filters.material.has(item.material));
+    }
+    if (filters.category.size > 0) {
+        filteredItems = filteredItems.filter(item => filters.category.has(item.category));
+    }
+    if (filters.washTemperature.size > 0) {
+        filteredItems = filteredItems.filter(item => filters.washTemperature.has(item.washTemperature));
+    }
+
+    renderItems(filteredItems);
+    console.log(filteredItems);
+}
+
+function setupFilters() {
+    document.querySelectorAll('#sidebar input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const filterType = this.closest('.filter-section').querySelector('h3').textContent.toLowerCase().replace(' ', '');
+            if (this.checked) {
+                filters[filterType].add(this.value);
+            } else {
+                filters[filterType].delete(this.value);
+            }
+            applyFiltersAndRender(items);
+        });
+    });
+}
+
+setupFilters();
+renderItems(items); // Initial render
+
+
 
 function deleteItem(index) {
     var items = JSON.parse(localStorage.getItem('items')) || [];
     items.splice(index, 1);
     localStorage.setItem('items', JSON.stringify(items));
-    displayItems();
+    applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
 }
 
 function incrementItemUses(index) {
     var items = JSON.parse(localStorage.getItem('items')) || [];
     items[index].uses++;
     localStorage.setItem('items', JSON.stringify(items));
-    displayItems();
+    applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
 }
 
 function decrementItemUses(index) {
@@ -95,7 +143,7 @@ function decrementItemUses(index) {
     if (items[index].uses > 0) {
         items[index].uses--;
         localStorage.setItem('items', JSON.stringify(items));
-        displayItems();
+        applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
     }
 }
 
@@ -103,11 +151,10 @@ function resetItemUses(index) {
     var items = JSON.parse(localStorage.getItem('items')) || [];
     items[index].uses = 0;
     localStorage.setItem('items', JSON.stringify(items));
-    displayItems();
+    applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
 }
 
-function displayItems() {
-    var items = JSON.parse(localStorage.getItem('items')) || [];
+function renderItems(items) {
     var grid = document.getElementById('grid');
     grid.innerHTML = '';
 
@@ -135,5 +182,3 @@ function displayItems() {
         grid.appendChild(div);
     });
 }
-
-displayItems();
