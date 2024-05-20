@@ -1,19 +1,61 @@
-/* Add your main styles here */
-body {
-    font-family: Arial, sans-serif;
-}
+/* main.css */
 
-#grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-bottom: 40px;
-    margin-bottom: 60px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
 }
 
 #header {
+    background-color: #1F1F1F;
     padding: 20px;
     text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+#header h1 {
+    margin: 0;
+    color: #E0E0E0;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+#sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #1F1F1F;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #333;
+}
+
+#grid {
+    margin-left: 220px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+button, input, select {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #E0E0E0;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+button:hover, input:hover, select:hover {
+    background-color: #444;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #addButton {
@@ -38,10 +80,28 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
+}
+
+#overlay form {
+    background-color: #1F1F1F;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+}
+
+#overlay h2 {
+    color: #E0E0E0;
+}
+
+#overlay p {
+    margin: 10px 0 5px;
+    color: #BB86FC;
 }
 
 #closeButton {
@@ -90,8 +150,8 @@ body {
 
 #addItemForm p {
     font-size: 1em;
-    color: #666;
-    margin-left: 10px;
+    color: #bbb;
+    margin-left: 0px;
     margin-bottom: 5px;
 }
 
@@ -110,28 +170,39 @@ body {
 }
 
 #gridItem {
-    background-color: white;
-    padding: 20px;
+    background-color: #1F1F1F;
+    padding: 0px;
     border-radius: 10px;
     margin: 10px;
-    width: 200px;
-    box-shadow: 6px 6px 24px rgba(0, 0, 0, 0.1);
+    width: 256px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    border: 1px solid #333;
 }
 
 #gridItem img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-#gridItem h2 {
-    padding-top: 10px;
+
+
+/* Grid item details */
+#itemDetails {
+    padding: 5px;
+    padding-left: 15px;
+}
+
+#itemDetails h2 {
     font-size: 1.5em;
     margin: 0;
 }
 
-#gridItem p {
+#itemDetails p {
     font-size: 1em;
-    color: #666;
+    color: #bbb;
+    line-height: 0.5;
 }
 
 /* Grid item buttons */
@@ -139,37 +210,66 @@ body {
 #itemButtons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 0px;
+}
+
+#itemButtons button {
+    flex: 1;
+    margin: 0;
+}
+
+
+#itemButtons p {
+    background-color: #333;
+    color: white;
+    border-radius: 0px;
+    border-color: #0000;
+    cursor: pointer;
+    flex: 1;
+    margin: 0;
+}
+
+#itemUseCount {
+    background-color: #333;
+    color: white;
+    border-radius: 0px;
+    border-color: #0000;
+    cursor: pointer;
+}
+
+#itemUseCount:hover {
+    background-color: #666;
 }
 
 #deleteItemBtn {
-    background-color: #ff0000;
+    background-color: #900000;
     color: white;
-    border-radius: 100px;
+    border-radius: 0px;
     border-color: #0000;
     cursor: pointer;
+    border-bottom-right-radius: 10px;
 }
 
 #deleteItemBtn:hover {
     background-color: #ff8888;
 }
 
-#resetItemUsesBtn {
+#editItemBtn {
     background-color: #333;
     color: white;
-    border-radius: 100px;
+    border-radius: 0px;
     border-color: #0000;
     cursor: pointer;
 }
 
-#resetItemUsesBtn:hover {
+#editItemBtn:hover {
     background-color: #666;
 }
 
 #incrementItemUsesBtn {
     background-color: #333;
     color: white;
-    border-radius: 100px;
+    border-radius: 0px;
     border-color: #0000;
     cursor: pointer;
 }
@@ -181,9 +281,10 @@ body {
 #decrementItemUsesBtn {
     background-color: #333;
     color: white;
-    border-radius: 100px;
+    border-radius: 0px;
     border-color: #0000;
     cursor: pointer;
+    border-bottom-left-radius: 10px;
 }
 
 #decrementItemUsesBtn:hover {
