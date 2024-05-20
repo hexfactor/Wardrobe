@@ -37,7 +37,7 @@ body {
 #sidebar {
     box-sizing: border-box;
     width: 200px;
-    height: 100vh;
+    height: calc(100vh - 100px); /* Adjusted for header height */
     background-color: #1F1F1F;
     position: fixed;
     top: 100px; /* Adjusted to be below header */

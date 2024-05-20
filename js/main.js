@@ -59,7 +59,7 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
             name: document.getElementById('name').value,
             color: document.getElementById('color').value,
             material: document.getElementById('material').value,
-            piece: document.getElementById('category').value,
+            category: document.getElementById('category').value,
             washType: document.getElementById('washType').value,
             washTemperature: document.getElementById('washTemperature').value,
             dryType: document.getElementById('dryType').value,
@@ -82,7 +82,8 @@ const filters = {
     color: new Set(),
     material: new Set(),
     category: new Set(),
-    washTemperature: new Set()
+    washtype: new Set(),
+    washtemperature: new Set()
 };
 
 function applyFiltersAndRender(unfilteredItems) {
@@ -97,11 +98,15 @@ function applyFiltersAndRender(unfilteredItems) {
     if (filters.category.size > 0) {
         filteredItems = filteredItems.filter(item => filters.category.has(item.category));
     }
-    if (filters.washTemperature.size > 0) {
-        filteredItems = filteredItems.filter(item => filters.washTemperature.has(item.washTemperature));
+    if (filters.washtype.size > 0) {
+        filteredItems = filteredItems.filter(item => filters.washtype.has(item.washType));
+    }
+    if (filters.washtemperature.size > 0) {
+        filteredItems = filteredItems.filter(item => filters.washtemperature.has(item.washTemperature));
     }
 
     renderItems(filteredItems);
+    console.log(filters);
     console.log(filteredItems);
 }
 
@@ -109,6 +114,7 @@ function setupFilters() {
     document.querySelectorAll('#sidebar input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             const filterType = this.closest('.filter-section').querySelector('h3').textContent.toLowerCase().replace(' ', '');
+            console.log(filterType + ': ' + this.value);
             if (this.checked) {
                 filters[filterType].add(this.value);
             } else {
@@ -165,7 +171,7 @@ function renderItems(items) {
             <img src="${item.image}">
             <div id="itemDetails">
                 <h2>${item.name}</h2>
-                <p>${item.color} ${item.material} ${item.piece}</p>
+                <p>${item.color} ${item.material} ${item.category}</p>
                 <p>Washing: ${item.washTemperature} ${item.washType}</p>
                 <p>Drying: ${item.dryTemperature} ${item.dryType}</p>
             </div>
