@@ -114,7 +114,7 @@ function setupFilters() {
             } else {
                 filters[filterType].delete(this.value);
             }
-            applyFiltersAndRender(items);
+            applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
         });
     });
 }

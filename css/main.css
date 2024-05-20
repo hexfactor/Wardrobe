@@ -9,10 +9,18 @@ body {
 }
 
 #header {
+    box-sizing: border-box;
     background-color: #1F1F1F;
-    padding: 20px;
+    padding: 40px;
+    margin: 0px;
     text-align: center;
     border-bottom: 1px solid #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    height: 100px;
 }
 
 #header h1 {
@@ -20,17 +28,24 @@ body {
     color: #E0E0E0;
     font-size: 24px;
     letter-spacing: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #sidebar {
-    width: 250px;
+    box-sizing: border-box;
+    width: 200px;
     height: 100vh;
     background-color: #1F1F1F;
     position: fixed;
-    top: 60px; /* Adjusted to be below header */
+    top: 100px; /* Adjusted to be below header */
     left: 0;
     border-right: 1px solid #333;
-    padding: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     overflow-y: auto;
 }
 
@@ -59,11 +74,19 @@ body {
 }
 
 #grid {
-    margin-left: 220px;
-    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 200px; /* Adjusted for sidebar width */
+    margin-top: 100px; /* Adjusted to be below header */
+    margin-right: 0px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
     gap: 20px;
+    width: calc(100% - 200); /* Adjusted for sidebar width */
 }
 
 button, input, select {
@@ -196,33 +219,39 @@ button {
 }
 
 #gridItem {
-    background-color: #1F1F1F;
     padding: 0px;
-    border-radius: 10px;
-    margin: 10px;
+    margin: 0px;
     width: 256px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    border: 1px solid #333;
 }
 
 #gridItem img {
+    display: block;
+    box-sizing: border-box;
     width: 100%;
     border-radius: 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    border-top: 1px solid #333;
+    padding: 0px;
+    margin: 0px;
 }
 
 
 
 /* Grid item details */
 #itemDetails {
-    padding: 5px;
-    padding-left: 15px;
+    padding: 15px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    background-color: #1F1F1F;
+    margin: 0px;
 }
 
 #itemDetails h2 {
     font-size: 1.5em;
-    margin: 0;
+    margin: 0px;
 }
 
 #itemDetails p {
@@ -237,6 +266,11 @@ button {
     display: flex;
     justify-content: space-between;
     margin: 0px;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #itemButtons button {
