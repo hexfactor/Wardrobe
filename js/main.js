@@ -89,10 +89,10 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
 
         document.getElementById('overlay').style.display = 'none';
         applyFiltersAndRender(JSON.parse(localStorage.getItem('items')) || []);
+
+        document.getElementById('addItemForm').reset();
     });
 });
-
-
 
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const filters = {
