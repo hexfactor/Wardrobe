@@ -50,6 +50,24 @@ document.getElementById('closeButton').addEventListener('click', function() {
     document.getElementById('overlay').style.display = 'none';
 });
 
+// Get all SVG elements
+var svgs = document.querySelectorAll('#color-picker circle');
+svgs.forEach(function(svg) {
+    svg.addEventListener('click', function() {
+        console.log('clicked');
+        // Remove 'selected' class from all SVGs
+        svgs.forEach(function(otherSvg) {
+            otherSvg.classList.remove('selected');
+        });
+
+        // Add 'selected' class to clicked SVG
+        this.classList.add('selected');
+
+        // Store selected color
+        var selectedColor = this.id;
+    });
+});
+
 document.getElementById('addItemForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -57,13 +75,11 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
         var item = {
             image: resizedImage,
             name: document.getElementById('name').value,
-            color: document.getElementById('color').value,
+            color: document.querySelectorAll('#color-picker circle.selected')[0].id,
             material: document.getElementById('material').value,
             category: document.getElementById('category').value,
             washType: document.getElementById('washType').value,
-            washTemperature: document.getElementById('washTemperature').value,
             dryType: document.getElementById('dryType').value,
-            dryTemperature: document.getElementById('dryTemperature').value,
             uses: 0
         };
 
@@ -77,13 +93,13 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
 });
 
 
+
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const filters = {
     color: new Set(),
     material: new Set(),
     category: new Set(),
     washtype: new Set(),
-    washtemperature: new Set()
 };
 
 function applyFiltersAndRender(unfilteredItems) {
@@ -100,9 +116,6 @@ function applyFiltersAndRender(unfilteredItems) {
     }
     if (filters.washtype.size > 0) {
         filteredItems = filteredItems.filter(item => filters.washtype.has(item.washType));
-    }
-    if (filters.washtemperature.size > 0) {
-        filteredItems = filteredItems.filter(item => filters.washtemperature.has(item.washTemperature));
     }
 
     renderItems(filteredItems);
@@ -172,8 +185,8 @@ function renderItems(items) {
             <div id="itemDetails">
                 <h2>${item.name}</h2>
                 <p>${item.color} ${item.material} ${item.category}</p>
-                <p>Washing: ${item.washTemperature} ${item.washType}</p>
-                <p>Drying: ${item.dryTemperature} ${item.dryType}</p>
+                <p>${item.washType}</p>
+                <p>${item.dryType}</p>
             </div>
         `;
         div.innerHTML += `

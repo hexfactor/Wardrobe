@@ -35,13 +35,14 @@
             <label><input type="checkbox" value="Polyester">Polyester</label>
             <label><input type="checkbox" value="Nylon">Nylon</label>
             <label><input type="checkbox" value="Wool">Wool</label>
+            <label><input type="checkbox" value="Denim">Denim</label>
             <label><input type="checkbox" value="Other">Other</label>
         </div>
 
         <div class="filter-section">
             <h3>Category</h3>
             <label><input type="checkbox" value="Shirt">Shirt</label>
-            <label><input type="checkbox" value="Pants">Pants</label>
+            <label><input type="checkbox" value="Trousers">Trousers</label>
             <label><input type="checkbox" value="Shorts">Shorts</label>
             <label><input type="checkbox" value="Jacket">Jacket</label>
             <label><input type="checkbox" value="Sweater">Sweater</label>
@@ -54,18 +55,10 @@
 
         <div class="filter-section">
             <h3>Wash Type</h3>
-            <label><input type="checkbox" value="Normal">Normal</label>
-            <label><input type="checkbox" value="Delicate">Delicate</label>
-            <label><input type="checkbox" value="Hand Wash">Hand Wash</label>
-            <label><input type="checkbox" value="Wash Separately">Wash Separately</label>
+            <label><input type="checkbox" value="Cold Gentle Cycle (30)">Cold Gentle Cycle (30)</label>
+            <label><input type="checkbox" value="Cold Cycle (30)">Cold Cycle (30)</label>
+            <label><input type="checkbox" value="Warm Cycle (40)">Warm Cycle (40)</label>
             <label><input type="checkbox" value="Dry Clean">Dry Clean</label>
-        </div>
-
-        <div class="filter-section">
-            <h3>Wash Temperature</h3>
-            <label><input type="checkbox" value="Cold">Cold (30)</label>
-            <label><input type="checkbox" value="Warm">Warm (40)</label>
-            <label><input type="checkbox" value="Hot">Hot (60)</label>
         </div>
     </div>
     <div id="grid"></div>
@@ -75,35 +68,59 @@
         <form id="addItemForm">
             <input type="file" id="imageUpload" accept="image/*">
             <input type="text" id="name" placeholder="Name">
+            <div id="color-picker">
+                <svg width="30" height="30">
+                    <circle id="White" cx="15" cy="15" r="15" class="selected" style="fill:white;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Grey" cx="15" cy="15" r="15" style="fill:grey;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Black" cx="15" cy="15" r="15" style="fill:black;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Red" cx="15" cy="15" r="15" style="fill:red;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Orange" cx="15" cy="15" r="15" style="fill:orange;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Yellow" cx="15" cy="15" r="15" style="fill:yellow;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Green" cx="15" cy="15" r="15" style="fill:green;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Blue" cx="15" cy="15" r="15" style="fill:blue;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Purple" cx="15" cy="15" r="15" style="fill:purple;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Pink" cx="15" cy="15" r="15" style="fill:pink;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+                <svg width="30" height="30">
+                    <circle id="Brown" cx="15" cy="15" r="15" style="fill:brown;stroke-width:2;stroke:rgb(0,0,0)" />
+                </svg>
+            </div>
+            
+            <style>
 
+            </style>
             <div id="itemFormSection">
-                <select id="color" placeholder="Color">
-                    <option value="White">White</option>
-                    <option value="Black">Black</option>
-                    <option value="Red">Red</option>
-                    <option value="Orange">Orange</option>
-                    <option value="Yellow">Yellow</option>
-                    <option value="Green">Green</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Purple">Purple</option>
-                    <option value="Pink">Pink</option>
-                    <option value="Brown">Brown</option>
-                    <option value="Grey">Grey</option>
-                    <option value="Beige">Beige</option>
-                    <option value="Other">Other</option>
-                </select>
 
                 <select id="material" placeholder="Material">
                     <option value="Cotton">Cotton</option>
                     <option value="Polyester">Polyester</option>
                     <option value="Denim">Nylon</option>
                     <option value="Wool">Wool</option>
+                    <option value="Denim">Denim</option>
                     <option value="Other">Other</option>
                 </select>
 
                 <select id="category" placeholder="Category">
                     <option value="Shirt">Shirt</option>
-                    <option value="Pants">Pants</option>
+                    <option value="Trousers">Trousers</option>
                     <option value="Shorts">Shorts</option>
                     <option value="Jacket">Jacket</option>
                     <option value="Sweater">Sweater</option>
@@ -119,30 +136,18 @@
 
             <div id="itemFormSection">
                 <select id="washType" placeholder="Wash Type">
-                    <option value="Normal">Normal</option>
-                    <option value="Delicate">Delicate</option>
-                    <option value="Hand Wash">Hand Wash</option>
-                    <option value="Wash Separately">Wash Separately</option>
+                    <option value="Cold Gentle Cycle (30)">Cold Gentle Cycle (30)</option>
+                    <option value="Cold Cycle (30)">Cold Cycle (30)</option>
+                    <option value="Warm Cycle (40)">Warm Cycle (40)</option>
                     <option value="Dry Clean">Dry Clean</option>
-                </select>
-
-                <select id="washTemperature" placeholder="Wash Temperature">
-                    <option value="Cold">Cold (30)</option>
-                    <option value="Warm">Warm (40)</option>
-                    <option value="Hot">Hot (60)</option>
                 </select>
             </div>
             <p>Drying</p>
             <div id="itemFormSection">
                 <select id="dryType" placeholder="Dry Type">
-                    <option value="Tumble Dry">Tumble Dry</option>
                     <option value="Line Dry">Line Dry</option>
-                </select>
-
-                <select id="dryTemperature" placeholder="Dry Temperature">
-                    <option value="Low">Low/Shade</option>
-                    <option value="Medium">Medium/Outdoors</option>
-                    <option value="High">High/Full sun?</option>
+                    <option value="Tumble Dry Low">Tumble Dry Low</option>
+                    <option value="Tumble Dry">Tumble Dry</option>
                 </select>
             </div>
 
